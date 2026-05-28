@@ -1,6 +1,6 @@
 # finance-pipeline-public
 
-Personal finance data pipeline infrastructure — a modern, Docker-based data stack that ingests bank transactions, transforms them through a medallion architecture, and serves analytics via a BI dashboard. Designed for personal use with future ML integration in mind.
+Personal finance data pipeline — a modern, Docker-based data stack that ingests bank transactions, transforms them through a medallion architecture, and serves analytics via a BI dashboard. Designed for personal use with future ML integration in mind.
 
 > This repository contains the **pipeline layer**.  
 > The infrastructure (Docker Compose, PostgreSQL init, Airflow/Superset config) lives in the companion repo: [`finance-infra-public`](../finance-infra-public).
