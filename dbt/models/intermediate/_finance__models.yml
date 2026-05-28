@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: int_finance
+    description: "Intermediate model for finance data"
+    columns:
+      - name: transaction_id
+        tests:
+          - unique
+          - not_null
+      - name: transaction_date
+        tests:
+          - not_null
+      - name: amount
+        tests:
+          - not_null
+      - name: direction
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['IN', 'OUT']

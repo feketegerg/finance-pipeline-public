@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: stg_finance
+    description: "Staging model for transactions data"
+    columns:
+      - name: transaction_id
+        description: "Unique identifier for each transaction. Combination of transaction_date, amount and counterparty_account_id"
+        tests:
+          - unique
+          - not_null
+
+      - name: amount
+        description: "Amount of the transaction. Because of the direction column, this is always a positive number."
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "> 0"
+
+      - name: transaction_date
+        description: "Date of the transaction"
+        tests:
+          - not_null
+
+      - name: spending_category
+        description: "Category of the transaction based on MCC codes from OTP."
+
+      - name: direction
+        description: "Direction of the transaction. Either 'IN' or 'OUT'."
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "IN ('IN', 'OUT')"
+            
+      - name: currency
+        description: "Currency of the transaction."
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "IN ('HUF')"

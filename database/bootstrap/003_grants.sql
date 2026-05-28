@@ -1,0 +1,1 @@
+GRANT ALL PRIVILEGES ON DATABASE project_db TO project_user;

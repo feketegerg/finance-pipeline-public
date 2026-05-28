@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: finance
+    schema: raw
+    description: "Raw financial transactions loaded by Airflow from CSV files."
+    tables:
+      - name: raw_transactions
+        description: "Raw transactions data from OTP. Each row represents a single transaction."
